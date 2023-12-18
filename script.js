@@ -1,18 +1,29 @@
-let pixels = [];
 const grid = document.querySelector("#grid");
 
-let dimension = 16;
-for (let i = 0; i < dimension; i++) {
-    const pixel_col = document.createElement("div");
-    pixel_col.setAttribute("id", "pixel-col");
+// Function to generate grid with specific dimension.
+const generateGrid = (dim) => {
+    for (let i = 0; i < dim; i++) {
+        const pixel_col = document.createElement("div");
+        pixel_col.setAttribute("id", "pixel-col");
 
-    for (let j = 0; j < dimension; j++) {
-        console.log(`Adding pixel number ${i} ${j}`);
+        for (let j = 0; j < dim; j++) {
+            console.log(`Adding pixel number ${i} ${j}`);
 
-        const pixel = document.createElement("div");
-        pixel.setAttribute("id", "pixel");
+            const pixel = document.createElement("div");
+            pixel.setAttribute("id", "pixel");
 
-        pixel_col.appendChild(pixel);
+            pixel_col.appendChild(pixel);
+        }
+        grid.appendChild(pixel_col);
     }
-    grid.appendChild(pixel_col);
-}
+};
+
+// Function to remove the grid.
+const deleteGrid = () => {
+    let grid_cols = document.querySelectorAll("#pixel-col");
+    grid_cols.forEach((col) => {
+        col.remove();
+    });
+};
+
+generateGrid(20);

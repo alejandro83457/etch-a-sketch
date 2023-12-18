@@ -1,8 +1,9 @@
 #grid {
     display: flex;
-    height: 1000px;
-    width: 1000px;
-    background-color: lightblue;
+    height: 400px;
+    width: 400px;
+    background-color: rgb(232, 232, 232);
+    margin: 0 auto;
 }
 #pixel-col {
     flex-grow: 1;
