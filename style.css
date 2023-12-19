@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
 #footer {
@@ -44,6 +45,7 @@ body {
 }
 
 button,
-select {
+select,
+#range-value {
     margin: 0.5em;
 }

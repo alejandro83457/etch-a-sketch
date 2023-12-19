@@ -8,12 +8,14 @@ const resetButton = document.querySelector("#reset-button");
 const rainbowButton = document.querySelector("#rainbow-button");
 const colorOptions = document.querySelector("#color-options");
 const rangeSlider = document.querySelector("#range-select");
+const rangeValueDiv = document.querySelector("#range-value");
 
 // Event listeners
 rangeSlider.addEventListener("change", (e) => {
     console.log("generating grid...");
     deleteGrid();
     generateGrid(e.target.value);
+    rangeValueDiv.textContent = e.target.value;
 });
 resetButton.addEventListener("click", () => resetGrid());
 rainbowButton.addEventListener("click", () => (rainbowToggle = !rainbowToggle));
