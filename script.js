@@ -7,8 +7,14 @@ const grid = document.querySelector("#grid");
 const resetButton = document.querySelector("#reset-button");
 const rainbowButton = document.querySelector("#rainbow-button");
 const colorOptions = document.querySelector("#color-options");
+const rangeSlider = document.querySelector("#range-select");
 
 // Event listeners
+rangeSlider.addEventListener("change", (e) => {
+    console.log("generating grid...");
+    deleteGrid();
+    generateGrid(e.target.value);
+});
 resetButton.addEventListener("click", () => resetGrid());
 rainbowButton.addEventListener("click", () => (rainbowToggle = !rainbowToggle));
 colorOptions.addEventListener("change", (e) => {
@@ -35,12 +41,11 @@ const generateGrid = (dim) => {
         pixel_col.setAttribute("id", "pixel-col");
 
         for (let j = 0; j < dim; j++) {
-            console.log(`Adding pixel number ${i} ${j}`);
-
             const pixel = document.createElement("div");
             pixel.setAttribute("id", "pixel");
 
-            // Event listeners will only allow you to draw when you've clicked and dragged.
+            // Event listeners will only allow you to draw
+            // when you've clicked and dragged.
             pixel.addEventListener("mousedown", () => (isMouseDown = true));
             pixel.addEventListener("mouseup", () => (isMouseDown = false));
             pixel.addEventListener("mouseover", (e) => {
@@ -61,6 +66,7 @@ const deleteGrid = () => {
     });
 };
 
+// Removes grid color.
 const resetGrid = () => {
     let pixels = document.querySelectorAll("#pixel");
     pixels.forEach((pixel) => {
@@ -68,4 +74,4 @@ const resetGrid = () => {
     });
 };
 
-generateGrid(20);
+generateGrid(50);
