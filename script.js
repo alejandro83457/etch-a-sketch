@@ -1,5 +1,6 @@
 let rainbowToggle = false;
 let currentColor = "black";
+let isMouseDown = false;
 
 // Objects
 const grid = document.querySelector("#grid");
@@ -38,10 +39,13 @@ const generateGrid = (dim) => {
 
             const pixel = document.createElement("div");
             pixel.setAttribute("id", "pixel");
-            pixel.addEventListener(
-                "mouseover",
-                (e) => (e.target.style.backgroundColor = chooseColor())
-            );
+
+            // Event listeners will only allow you to draw when you've clicked and dragged.
+            pixel.addEventListener("mousedown", () => (isMouseDown = true));
+            pixel.addEventListener("mouseup", () => (isMouseDown = false));
+            pixel.addEventListener("mouseover", (e) => {
+                if (isMouseDown) e.target.style.backgroundColor = chooseColor();
+            });
 
             pixel_col.appendChild(pixel);
         }
