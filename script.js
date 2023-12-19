@@ -48,7 +48,10 @@ const generateGrid = (dim) => {
 
             // Event listeners will only allow you to draw
             // when you've clicked and dragged.
-            pixel.addEventListener("mousedown", () => (isMouseDown = true));
+            pixel.addEventListener("mousedown", (e) => {
+                isMouseDown = true;
+                e.target.style.backgroundColor = chooseColor();
+            });
             pixel.addEventListener("mouseup", () => (isMouseDown = false));
             pixel.addEventListener("mouseover", (e) => {
                 if (isMouseDown) e.target.style.backgroundColor = chooseColor();

@@ -23,8 +23,8 @@ body {
 }
 #grid {
     display: flex;
-    height: 400px;
-    width: 400px;
+    height: 800px;
+    width: 800px;
     background-color: rgb(243, 243, 243);
     margin: 0 auto;
     border: 1px solid lightgray;
